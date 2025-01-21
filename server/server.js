@@ -4,6 +4,7 @@ const cookieParser = require("cookie-parser");
 require("dotenv").config();
 const cors = require("cors");
 const authRouter = require("./routes/auth/auth-routes");
+const adminProductsRouter = require("./routes/admin/products-route");
 
 // create database connection
 mongoose
@@ -32,6 +33,7 @@ app.use(
 app.use(cookieParser());
 app.use(express.json());
 app.use("/api/auth", authRouter);
+app.use("/api/admin/products", adminProductsRouter);
 
 app.listen(PORT, () => {
   console.log(`Server is listening on port ${PORT}`);
